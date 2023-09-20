@@ -1,0 +1,8 @@
+docker run -ti --rm --platform linux/arm64  --device /dev/fuse -v `pwd`:/code alpine:3.18 sh
+
+apk add abuild lua-aports build-base alpine-sdk autoconf automake libtool git coreutils bash which wget curl jq su-exec sudo util-linux-dev util-linux gpg rpm2cpio sshfs s3fs-fuse
+
+apk add erlang-dev --repository https://dl-cdn.alpinelinux.org/alpine/edge/community
+
+adduser --gecos "" --disabled-password -u 1000 -G abuild -s /bin/bash -D me && su me
+
